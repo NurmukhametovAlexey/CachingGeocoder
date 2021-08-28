@@ -1,4 +1,4 @@
-package ru.nurmukhametov.geocodingcasher.model;
+package ru.nurmukhametov.geocodingcacher.model;
 
 import lombok.*;
 
@@ -8,13 +8,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "geocode")
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
+@Data
 public class Geocode {
     @Id
     private String coordinates;
 
     private String address;
 }
+

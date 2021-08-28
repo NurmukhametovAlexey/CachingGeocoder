@@ -1,8 +1,7 @@
-package ru.nurmukhametov.geocodingcasher.config;
+package ru.nurmukhametov.geocodingcacher.config;
 
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -17,9 +16,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan("ru.nurmukhametov.geocodingcasher")
+@ComponentScan("ru.nurmukhametov.geocodingcacher")
 @EnableJpaRepositories(basePackages = {
-        "ru.nurmukhametov.geocodingcasher"
+        "ru.nurmukhametov.geocodingcacher"
 })
 @EnableTransactionManagement
 @PropertySource("classpath:application.properties")
@@ -54,7 +53,7 @@ public class AppConfig {
         jpaProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL10Dialect");
         jpaProperties.setProperty("hibernate.hbm2ddl.auto", "update");
         emFactory.setJpaProperties(jpaProperties);
-        emFactory.setPackagesToScan("ru.nurmukhametov.geocodingcasher");
+        emFactory.setPackagesToScan("ru.nurmukhametov.geocodingcacher");
         return emFactory;
     }
 
