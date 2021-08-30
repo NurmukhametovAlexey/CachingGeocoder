@@ -6,10 +6,10 @@ import ru.nurmukhametov.geocodingcacher.model.Geocode;
 import ru.nurmukhametov.geocodingcacher.repository.GeocodeRepository;
 
 @Service
-public class GeocodeService {
+public class GeocodeRepositoryService {
     private final GeocodeRepository geocodeRepository;
 
-    @Autowired public GeocodeService(GeocodeRepository geocodeRepository) {
+    @Autowired public GeocodeRepositoryService(GeocodeRepository geocodeRepository) {
         this.geocodeRepository = geocodeRepository;
     }
 

@@ -16,7 +16,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan("ru.nurmukhametov.geocodingcacher")
 @EnableJpaRepositories(basePackages = {
         "ru.nurmukhametov.geocodingcacher"
 })
@@ -52,6 +51,7 @@ public class AppConfig {
         Properties jpaProperties = new Properties();
         jpaProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL10Dialect");
         jpaProperties.setProperty("hibernate.hbm2ddl.auto", "update");
+        jpaProperties.setProperty("showSql", "false");
         emFactory.setJpaProperties(jpaProperties);
         emFactory.setPackagesToScan("ru.nurmukhametov.geocodingcacher");
         return emFactory;
