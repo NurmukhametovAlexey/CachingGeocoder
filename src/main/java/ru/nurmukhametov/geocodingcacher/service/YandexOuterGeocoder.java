@@ -16,7 +16,11 @@ public class YandexOuterGeocoder implements OuterGeocoder {
 
     private final Logger logger = LoggerFactory.getLogger(YandexOuterGeocoder.class);
 
-    private final RestTemplate restTemplate;
+    private RestTemplate restTemplate;
+
+    public void setRestTemplate(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     @Autowired
     public YandexOuterGeocoder(RestTemplateBuilder restTemplateBuilder) {

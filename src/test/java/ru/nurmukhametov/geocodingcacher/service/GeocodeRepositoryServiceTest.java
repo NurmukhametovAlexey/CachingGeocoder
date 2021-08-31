@@ -1,5 +1,7 @@
 package ru.nurmukhametov.geocodingcacher.service;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -17,12 +19,19 @@ class GeocodeRepositoryServiceTest {
     @Mock
     private GeocodeRepository geocodeRepository;
 
+    private GeocodeRepositoryService underTest;
+
+    @BeforeEach
+    void setup() {
+        underTest = new GeocodeRepositoryService(geocodeRepository);
+    }
+
     @Test
     void getCoordinatesByAddress() {
         //given
         String address = "address";
         //when
-        geocodeRepository.findByAddress(address);
+        underTest.getCoordinatesByAddress(address);
         //then
         Mockito.verify(geocodeRepository, Mockito.times(1)).findByAddress(address);
     }
@@ -32,7 +41,7 @@ class GeocodeRepositoryServiceTest {
         //given
         String coordinates = "coordinates";
         //when
-        geocodeRepository.findByCoordinates(coordinates);
+        underTest.getAddressByCoordinates(coordinates);
         //then
         Mockito.verify(geocodeRepository, Mockito.times(1)).findByCoordinates(coordinates);
     }
@@ -42,7 +51,7 @@ class GeocodeRepositoryServiceTest {
         //given
         Geocode geocode = new Geocode();
         //when
-        geocodeRepository.save(geocode);
+        underTest.saveGeocode(geocode);
         //then
         Mockito.verify(geocodeRepository, Mockito.times(1)).save(geocode);
     }

@@ -24,8 +24,8 @@ public class GeocodingCacherApplication {
         OuterGeocoder yandexOuterGeocoder = ctx.getBean(OuterGeocoder.class);
 
         //Geocode geocode = yandexOuterGeocoder.makeHttpRequest("Москва");
-        Geocode geocode = yandexOuterGeocoder.makeHttpRequest("37.587614 55.753083");
+        //Geocode geocode = yandexOuterGeocoder.makeHttpRequest("37.587614 55.753083");
 
-        System.out.println(geocode.getAddress());
+        //System.out.println(geocode.getAddress());
     }
 }
