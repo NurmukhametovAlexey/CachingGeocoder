@@ -1,25 +1,29 @@
 package ru.nurmukhametov.geocodingcacher.service;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
+import org.mockito.BDDMockito;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.web.client.RestTemplate;
+import ru.nurmukhametov.geocodingcacher.model.Geocode;
+
+import java.io.File;
+import java.io.IOException;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @ExtendWith(MockitoExtension.class)
-@RunWith(SpringRunner.class )
 @SpringBootTest
-@PropertySource("classpath:application.properties")
+@TestPropertySource("classpath:test.properties")
 class YandexOuterGeocoderTest {
 
     @Value("${yandex.api.geocode.key}")
@@ -39,13 +43,26 @@ class YandexOuterGeocoderTest {
     }
 
     @Test
-    void makeHttpRequest() {
+    void makeHttpRequest() throws IOException {
         //given
         String addressOrCoordinates = "aoc";
         String queryUrl = String.format(queryPattern, yandexApiKey, addressOrCoordinates);
+        Geocode expectedResponse = new Geocode();
+        expectedResponse.setCoordinates("37.587614 55.753083");
+        expectedResponse.setAddress("улица Новый Арбат, 24");
+
+        String testDataPath = getClass().getResource("/yandex_test_response.json").getFile();
+        File file = new File(testDataPath);
+        BDDMockito.given(restTemplate.getForObject(queryUrl, JsonNode.class)).willReturn(
+                new ObjectMapper().readTree(file)
+        );
+
         //when
-        yandexOuterGeocoder.makeHttpRequest(addressOrCoordinates);
+        Geocode methodResponse = yandexOuterGeocoder.makeHttpRequest(addressOrCoordinates);
+
         //then
-        Mockito.verify(restTemplate, Mockito.times(1)).getForObject(queryUrl, String.class);
+        Mockito.verify(restTemplate, Mockito.times(1)).getForObject(queryUrl, JsonNode.class);
+
+        assertThat(methodResponse).usingRecursiveComparison().isEqualTo(expectedResponse);
     }
 }

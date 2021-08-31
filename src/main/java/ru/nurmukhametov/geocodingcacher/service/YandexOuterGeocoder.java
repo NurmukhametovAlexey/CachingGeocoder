@@ -1,5 +1,7 @@
 package ru.nurmukhametov.geocodingcacher.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,18 +36,32 @@ public class YandexOuterGeocoder implements OuterGeocoder {
     String queryPattern;
 
     @Override
-    public Geocode makeHttpRequest (String addressOrCoordinates) {
+    public Geocode makeHttpRequest (String addressOrCoordinates) throws JsonProcessingException {
 
         String queryUrl = String.format(queryPattern, yandexApiKey, addressOrCoordinates);
 
         logger.debug("queryUrl: {}", queryUrl);
 
-        final String object = restTemplate.getForObject(queryUrl, String.class);
+        //queryUrl = "http://localhost:8080/test";
+
+        final JsonNode yandexResponse = restTemplate.getForObject(queryUrl, JsonNode.class);
+
+        logger.debug("yandexResponse: {}", yandexResponse);
+
+        // Parsing Yandex geocoder json-response.
+        // For detailed information check Yandex documentation:
+        // https://yandex.ru/dev/maps/geocoder/doc/desc/reference/response_structure.html
+        JsonNode geocodeInformation = yandexResponse
+                .path("response").path("GeoObjectCollection").path("featureMember").get(0).path("GeoObject");
+
+        String address = geocodeInformation.path("name").asText();
+        String coordinates = geocodeInformation.path("Point").path("pos").asText();
+
+        logger.debug("returning parsed geocode: address=<<{}>>, coordinates=<<{}>>", address, coordinates);
 
         Geocode geocode = new Geocode();
-        geocode.setAddress(object);
-        geocode.setCoordinates(object);
-
+        geocode.setCoordinates(coordinates);
+        geocode.setAddress(address);
         return geocode;
     }
 

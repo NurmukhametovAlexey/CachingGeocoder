@@ -1,5 +1,6 @@
     package ru.nurmukhametov.geocodingcacher;
 
+    import com.fasterxml.jackson.core.JsonProcessingException;
     import lombok.Data;
     import org.springframework.boot.SpringApplication;
     import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,7 +11,7 @@
     @SpringBootApplication
 @Data
 public class GeocodingCacherApplication {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JsonProcessingException {
         ApplicationContext ctx = SpringApplication.run(GeocodingCacherApplication.class, args);
 
         /*CacheSearchImpl cacheSearch = (CacheSearchImpl) ctx.getBean(CacheSearch.class);
@@ -23,7 +24,7 @@ public class GeocodingCacherApplication {
 
         OuterGeocoder yandexOuterGeocoder = ctx.getBean(OuterGeocoder.class);
 
-        //Geocode geocode = yandexOuterGeocoder.makeHttpRequest("Москва");
+        Geocode geocode = yandexOuterGeocoder.makeHttpRequest("Москва");
         //Geocode geocode = yandexOuterGeocoder.makeHttpRequest("37.587614 55.753083");
 
         //System.out.println(geocode.getAddress());
