@@ -6,13 +6,17 @@
 </head>
 <body>
 
-<form th:action="@{/geocode}" th:method="POST">
-    <input type="text" th:name="query"/>
-    <input type="submit"/>
-</form>
+<h1>
 
-<div th:if="${geocode!=null}" th:text="'Address: ' +  ${geocode.getAddress()} + ' ||| Coordinates: ' + ${geocode.getCoordinates()}"/>
-<div th:if="${geocode==null}" th:text="'No geocode yet...'"/>
+    <form th:action="@{/geocode}" th:method="POST">
+        <input type="text" th:name="query"/>
+        <input type="submit"/>
+    </form>
+
+    <div th:if="${geocode!=null}" th:utext="'Address: ' +  ${geocode.getAddress()} + '<br/>Coordinates: ' + ${geocode.getCoordinates()}"/>
+    <div th:if="${geocode==null}" th:text="'No geocode yet...'"/>
+
+</h1>
 
 </body>
 </html>

@@ -1,6 +1,5 @@
 package ru.nurmukhametov.geocodingcacher.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,7 +43,7 @@ public class YandexOuterGeocoder implements OuterGeocoder {
 
         logger.debug("queryUrl: {}", queryUrl);
 
-        queryUrl = "http://localhost:8080/test";
+        //queryUrl = "http://localhost:8080/test";
 
         final JsonNode yandexResponse;
         try {

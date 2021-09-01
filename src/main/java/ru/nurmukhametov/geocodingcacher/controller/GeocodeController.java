@@ -37,6 +37,10 @@ public class GeocodeController {
     public ModelAndView getGeocode(@RequestParam(value = "query") String query, RedirectAttributes attributes) {
         logger.debug("PostMapping '/geocode', Query: {}", query);
 
+        if(query == null || query.isBlank()) {
+            return new ModelAndView("redirect:/geocode");
+        }
+
         ModelAndView modelAndView = new ModelAndView();
         try {
             Geocode geocode =  geocodingService.findGeocode(query);
@@ -45,8 +49,7 @@ public class GeocodeController {
         } catch (Exception e) {
             logger.error("{} in controller. Stack trace: {}", e.getClass().getSimpleName(), e.getStackTrace());
             modelAndView.setViewName("redirect:/error");
-            attributes.addFlashAttribute("message", e.getMessage());
-            //modelAndView.addObject("message", e.getMessage());
+            attributes.addFlashAttribute("exception", e);
         }
         return modelAndView;
     }
