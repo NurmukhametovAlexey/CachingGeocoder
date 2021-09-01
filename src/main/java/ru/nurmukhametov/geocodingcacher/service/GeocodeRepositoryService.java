@@ -30,7 +30,7 @@ public class GeocodeRepositoryService {
         try {
             return geocodeRepository.save(geocode);
         } catch (Exception e) {
-            logger.error("Exception occured: {}", e.getClass().getName());
+            logger.error("Exception occurred: {}", e.getClass().getName());
             DatabaseException exception = new DatabaseException();
             exception.initCause(e);
             throw exception;

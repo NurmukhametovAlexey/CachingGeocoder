@@ -33,8 +33,7 @@ public class CachedGeocodingService {
         if(geocode == null) {
             geocode = outerGeocoder.makeHttpRequest(addressOrCoordinates);
             logger.debug("outer geocoder returns: {}", geocode);
-            //cacheService.cacheSave(geocode);
-            cacheService.cacheSave(null);
+            cacheService.cacheSave(geocode);
         }
 
         return geocode;
