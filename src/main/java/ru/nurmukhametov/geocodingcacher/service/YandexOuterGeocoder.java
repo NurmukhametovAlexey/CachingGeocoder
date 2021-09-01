@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
+import ru.nurmukhametov.geocodingcacher.exception.BadGeocoderRequestException;
 import ru.nurmukhametov.geocodingcacher.model.Geocode;
 
 @Service
@@ -36,7 +38,7 @@ public class YandexOuterGeocoder implements OuterGeocoder {
     String queryPattern;
 
     @Override
-    public Geocode makeHttpRequest (String addressOrCoordinates) throws JsonProcessingException {
+    public Geocode makeHttpRequest (String addressOrCoordinates) throws BadGeocoderRequestException {
 
         String queryUrl = String.format(queryPattern, yandexApiKey, addressOrCoordinates);
 
@@ -44,7 +46,14 @@ public class YandexOuterGeocoder implements OuterGeocoder {
 
         queryUrl = "http://localhost:8080/test";
 
-        final JsonNode yandexResponse = restTemplate.getForObject(queryUrl, JsonNode.class);
+        final JsonNode yandexResponse;
+        try {
+            yandexResponse = restTemplate.getForObject(queryUrl, JsonNode.class);
+        } catch (RestClientException e) {
+            logger.error("Exception occurred: {}", e.getClass().getName());
+            BadGeocoderRequestException exception = new BadGeocoderRequestException("Error in geocoder request", e);
+            throw exception;
+        }
 
         logger.debug("yandexResponse: {}", yandexResponse);
 

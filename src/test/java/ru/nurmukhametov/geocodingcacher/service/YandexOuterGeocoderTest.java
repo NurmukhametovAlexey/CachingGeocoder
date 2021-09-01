@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.web.client.RestTemplate;
+import ru.nurmukhametov.geocodingcacher.exception.BadGeocoderRequestException;
 import ru.nurmukhametov.geocodingcacher.model.Geocode;
 
 import java.io.File;
@@ -45,7 +46,7 @@ class YandexOuterGeocoderTest {
 
     @Disabled
     @Test
-    void makeHttpRequest() throws IOException {
+    void makeHttpRequest() throws IOException, BadGeocoderRequestException {
         //given
         String addressOrCoordinates = "aoc";
         String queryUrl = String.format(queryPattern, yandexApiKey, addressOrCoordinates);

@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.nurmukhametov.geocodingcacher.exception.BadGeocoderRequestException;
 import ru.nurmukhametov.geocodingcacher.exception.DatabaseException;
 import ru.nurmukhametov.geocodingcacher.model.Geocode;
 
@@ -22,7 +23,8 @@ public class CachedGeocodingService {
         this.outerGeocoder = outerGeocoder;
     }
 
-    public Geocode findGeocode(String addressOrCoordinates) throws JsonProcessingException, DatabaseException {
+    public Geocode findGeocode(String addressOrCoordinates)
+            throws DatabaseException, BadGeocoderRequestException {
 
         logger.debug("findGeocode method argument: {}", addressOrCoordinates);
 

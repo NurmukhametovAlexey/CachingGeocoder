@@ -13,17 +13,18 @@
 @Data
 public class GeocodingCacherApplication {
     public static void main(String[] args) throws JsonProcessingException {
-        ApplicationContext ctx = SpringApplication.run(GeocodingCacherApplication.class, args);
+        SpringApplication.run(GeocodingCacherApplication.class, args);
+        /*ApplicationContext ctx = SpringApplication.run(GeocodingCacherApplication.class, args);
 
         CachedGeocodingService cachedGeocodingService = ctx.getBean(CachedGeocodingService.class);
 
         Geocode geocode = null;
         try {
             geocode = cachedGeocodingService.findGeocode("Москва");
-        } catch (DatabaseException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-        System.out.println(geocode);
+        System.out.println(geocode);*/
     }
 }

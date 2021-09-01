@@ -31,9 +31,8 @@ public class GeocodeRepositoryService {
             return geocodeRepository.save(geocode);
         } catch (Exception e) {
             logger.error("Exception occurred: {}", e.getClass().getName());
-            DatabaseException exception = new DatabaseException();
-            exception.initCause(e);
-            throw exception;
+             throw new DatabaseException("Error with saving geocode to database", e);
+
         }
     }
 }

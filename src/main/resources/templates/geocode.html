@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/geocode}" th:method="POST">
+    <input type="text" th:name="query"/>
+    <input type="submit"/>
+</form>
+
+<div th:if="${geocode!=null}" th:text="'Address: ' +  ${geocode.getAddress()} + ' ||| Coordinates: ' + ${geocode.getCoordinates()}"/>
+<div th:if="${geocode==null}" th:text="'No geocode yet...'"/>
+
+</body>
+</html>
