@@ -6,6 +6,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import ru.nurmukhametov.geocodingcacher.exception.DatabaseException;
 import ru.nurmukhametov.geocodingcacher.model.Geocode;
 import ru.nurmukhametov.geocodingcacher.repository.GeocodeRepository;
 
@@ -43,7 +44,7 @@ class GeocodeRepositoryServiceTest {
     }
 
     @Test
-    void saveGeocode() {
+    void saveGeocode() throws DatabaseException {
         //given
         Geocode geocode = new Geocode();
         //when

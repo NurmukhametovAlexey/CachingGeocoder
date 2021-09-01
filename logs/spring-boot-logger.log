@@ -1,0 +1,265 @@
+2021-09-01 10:43:18,770 INFO org.springframework.boot.StartupInfoLogger [main] Starting YandexOuterGeocoderTest using Java 11 on PC_ALEX with PID 29924 (started by Alex in D:\Programming\IdeaProjects\GeocodingCasher)
+2021-09-01 10:43:18,771 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.5.4, Spring v5.3.9
+2021-09-01 10:43:18,773 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2021-09-01 10:43:21,037 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-01 10:43:21,123 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 67 ms. Found 1 JPA repository interfaces.
+2021-09-01 10:43:22,250 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-01 10:43:22,312 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-01 10:43:22,480 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-01 10:43:23,022 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-09-01 10:43:23,763 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-01 10:43:23,771 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-01 10:43:24,678 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-01 10:43:25,350 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [main] Exposing 13 endpoint(s) beneath base path '/actuator'
+2021-09-01 10:43:25,398 INFO org.springframework.boot.StartupInfoLogger [main] Started YandexOuterGeocoderTest in 7.149 seconds (JVM running for 8.69)
+2021-09-01 10:43:25,860 DEBUG ru.nurmukhametov.geocodingcacher.service.YandexOuterGeocoder [main] queryUrl: https://geocode-maps.yandex.ru/1.x/?format=json&apikey=c7fba982-a719-44e2-b065-0c6b85cf32c5&geocode=aoc
+2021-09-01 10:43:25,933 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-09-01 10:43:45,126 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GeocodingCacherApplication using Java 11 on PC_ALEX with PID 15800 (D:\Programming\IdeaProjects\GeocodingCasher\target\classes started by Alex in D:\Programming\IdeaProjects\GeocodingCasher)
+2021-09-01 10:43:45,128 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.4, Spring v5.3.9
+2021-09-01 10:43:45,128 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-09-01 10:43:45,157 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-01 10:43:45,158 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-01 10:43:45,627 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-01 10:43:45,663 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 30 ms. Found 1 JPA repository interfaces.
+2021-09-01 10:43:46,465 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2021-09-01 10:43:46,465 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2021-09-01 10:43:46,465 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-09-01 10:43:46,465 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-01 10:43:46,560 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-09-01 10:43:46,560 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1401 ms
+2021-09-01 10:43:46,785 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-01 10:43:46,817 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-01 10:43:46,977 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-01 10:43:47,311 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-09-01 10:43:47,858 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-01 10:43:47,866 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-01 10:43:48,197 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-01 10:43:48,595 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-09-01 10:43:48,599 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 13 endpoint(s) beneath base path '/actuator'
+2021-09-01 10:43:48,629 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2021-09-01 10:43:48,647 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2021-09-01 10:43:48,662 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GeocodingCacherApplication in 3.993 seconds (JVM running for 5.102)
+2021-09-01 10:43:48,668 DEBUG ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService [restartedMain] findGeocode method argument: hello
+2021-09-01 10:43:48,863 DEBUG CacheServiceImpl [restartedMain] Returning result: Geocode(coordinates=hello, address=world)
+2021-09-01 10:43:48,863 DEBUG ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService [restartedMain] cache search returns: Geocode(coordinates=hello, address=world)
+2021-09-01 10:43:49,750 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(3)-192.168.1.77] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-01 10:43:49,750 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(3)-192.168.1.77] Initializing Servlet 'dispatcherServlet'
+2021-09-01 10:43:49,752 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(3)-192.168.1.77] Completed initialization in 1 ms
+2021-09-01 10:57:55,290 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GeocodingCacherApplication using Java 11 on PC_ALEX with PID 10532 (D:\Programming\IdeaProjects\GeocodingCasher\target\classes started by Alex in D:\Programming\IdeaProjects\GeocodingCasher)
+2021-09-01 10:57:55,296 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.4, Spring v5.3.9
+2021-09-01 10:57:55,297 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-09-01 10:57:55,350 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-01 10:57:55,351 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-01 10:57:55,856 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-01 10:57:55,890 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 30 ms. Found 1 JPA repository interfaces.
+2021-09-01 10:57:56,440 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2021-09-01 10:57:56,450 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2021-09-01 10:57:56,450 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-09-01 10:57:56,450 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-01 10:57:56,520 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-09-01 10:57:56,520 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1168 ms
+2021-09-01 10:57:56,660 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-01 10:57:56,690 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-01 10:57:56,763 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-01 10:57:56,949 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-09-01 10:57:57,369 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-01 10:57:57,369 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-01 10:57:57,821 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-01 10:57:58,203 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-09-01 10:57:58,213 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 13 endpoint(s) beneath base path '/actuator'
+2021-09-01 10:57:58,233 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2021-09-01 10:57:58,243 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2021-09-01 10:57:58,263 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GeocodingCacherApplication in 3.628 seconds (JVM running for 4.551)
+2021-09-01 10:57:58,263 DEBUG ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService [restartedMain] findGeocode method argument: Москва
+2021-09-01 10:57:58,553 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(3)-192.168.1.77] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-01 10:57:58,553 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(3)-192.168.1.77] Initializing Servlet 'dispatcherServlet'
+2021-09-01 10:57:58,553 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(3)-192.168.1.77] Completed initialization in 0 ms
+2021-09-01 10:57:58,643 DEBUG ru.nurmukhametov.geocodingcacher.service.CacheServiceImpl [restartedMain] Returning result: null
+2021-09-01 10:57:58,643 DEBUG ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService [restartedMain] cache search returns: null
+2021-09-01 10:57:58,643 DEBUG ru.nurmukhametov.geocodingcacher.service.YandexOuterGeocoder [restartedMain] queryUrl: https://geocode-maps.yandex.ru/1.x/?format=json&apikey=c7fba982-a719-44e2-b065-0c6b85cf32c5&geocode=Москва
+2021-09-01 10:57:58,733 DEBUG ru.nurmukhametov.geocodingcacher.service.YandexOuterGeocoder [restartedMain] yandexResponse: {"response":{"GeoObjectCollection":{"metaDataProperty":{"GeocoderResponseMetaData":{"request":"Москва, улица Новый Арбат, дом 24","found":"1","results":"10"}},"featureMember":[{"GeoObject":{"metaDataProperty":{"GeocoderMetaData":{"kind":"house","text":"Россия, Москва, улица Новый Арбат, 24","precision":"exact","Address":{"country_code":"RU","postal_code":"119019","formatted":"Москва, улица Новый Арбат, 24","Components":[{"kind":"country","name":"Россия"},{"kind":"province","name":"Центральный федеральный округ"},{"kind":"province","name":"Москва"},{"kind":"locality","name":"Москва"},{"kind":"street","name":"улица Новый Арбат"},{"kind":"house","name":"24"}]},"AddressDetails":{"Country":{"AddressLine":"Москва, улица Новый Арбат, 24","CountryNameCode":"RU","CountryName":"Россия","AdministrativeArea":{"AdministrativeAreaName":"Москва","Locality":{"LocalityName":"Москва","Thoroughfare":{"ThoroughfareName":"улица Новый Арбат","Premise":{"PremiseNumber":"24","PostalCode":{"PostalCodeNumber":"119019"}}}}}}}}},"description":"Москва, Россия","name":"улица Новый Арбат, 24","boundedBy":{"Envelope":{"lowerCorner":"37.583508 55.750768","upperCorner":"37.591719 55.755398"}},"Point":{"pos":"37.587614 55.753083"}}}]}}}
+2021-09-01 10:57:58,733 DEBUG ru.nurmukhametov.geocodingcacher.service.YandexOuterGeocoder [restartedMain] returning parsed geocode: address=<<улица Новый Арбат, 24>>, coordinates=<<37.587614 55.753083>>
+2021-09-01 10:57:58,844 DEBUG ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService [restartedMain] outer geocoder returns: Geocode(coordinates=37.587614 55.753083, address=улица Новый Арбат, 24)
+2021-09-01 11:00:00,978 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GeocodingCacherApplication using Java 11 on PC_ALEX with PID 31728 (D:\Programming\IdeaProjects\GeocodingCasher\target\classes started by Alex in D:\Programming\IdeaProjects\GeocodingCasher)
+2021-09-01 11:00:00,978 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.4, Spring v5.3.9
+2021-09-01 11:00:00,978 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-09-01 11:00:01,018 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-01 11:00:01,018 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-01 11:00:01,493 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-01 11:00:01,526 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 27 ms. Found 1 JPA repository interfaces.
+2021-09-01 11:00:02,068 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2021-09-01 11:00:02,078 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2021-09-01 11:00:02,078 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-09-01 11:00:02,078 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-01 11:00:02,148 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-09-01 11:00:02,148 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1130 ms
+2021-09-01 11:00:02,288 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-01 11:00:02,318 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-01 11:00:02,388 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-01 11:00:02,738 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-09-01 11:00:03,159 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-01 11:00:03,164 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-01 11:00:03,425 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-01 11:00:03,739 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-09-01 11:00:03,739 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 13 endpoint(s) beneath base path '/actuator'
+2021-09-01 11:00:03,775 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2021-09-01 11:00:03,788 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2021-09-01 11:00:03,800 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GeocodingCacherApplication in 3.268 seconds (JVM running for 3.976)
+2021-09-01 11:00:03,804 DEBUG ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService [restartedMain] findGeocode method argument: Москва
+2021-09-01 11:00:03,973 DEBUG ru.nurmukhametov.geocodingcacher.service.CacheServiceImpl [restartedMain] Returning result: null
+2021-09-01 11:00:03,973 DEBUG ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService [restartedMain] cache search returns: null
+2021-09-01 11:00:03,973 DEBUG ru.nurmukhametov.geocodingcacher.service.YandexOuterGeocoder [restartedMain] queryUrl: https://geocode-maps.yandex.ru/1.x/?format=json&apikey=c7fba982-a719-44e2-b065-0c6b85cf32c5&geocode=Москва
+2021-09-01 11:00:04,028 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-01 11:00:04,029 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-09-01 11:00:04,030 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2021-09-01 11:00:04,071 DEBUG ru.nurmukhametov.geocodingcacher.service.YandexOuterGeocoder [restartedMain] yandexResponse: {"response":{"GeoObjectCollection":{"metaDataProperty":{"GeocoderResponseMetaData":{"request":"Москва, улица Новый Арбат, дом 24","found":"1","results":"10"}},"featureMember":[{"GeoObject":{"metaDataProperty":{"GeocoderMetaData":{"kind":"house","text":"Россия, Москва, улица Новый Арбат, 24","precision":"exact","Address":{"country_code":"RU","postal_code":"119019","formatted":"Москва, улица Новый Арбат, 24","Components":[{"kind":"country","name":"Россия"},{"kind":"province","name":"Центральный федеральный округ"},{"kind":"province","name":"Москва"},{"kind":"locality","name":"Москва"},{"kind":"street","name":"улица Новый Арбат"},{"kind":"house","name":"24"}]},"AddressDetails":{"Country":{"AddressLine":"Москва, улица Новый Арбат, 24","CountryNameCode":"RU","CountryName":"Россия","AdministrativeArea":{"AdministrativeAreaName":"Москва","Locality":{"LocalityName":"Москва","Thoroughfare":{"ThoroughfareName":"улица Новый Арбат","Premise":{"PremiseNumber":"24","PostalCode":{"PostalCodeNumber":"119019"}}}}}}}}},"description":"Москва, Россия","name":"улица Новый Арбат, 24","boundedBy":{"Envelope":{"lowerCorner":"37.583508 55.750768","upperCorner":"37.591719 55.755398"}},"Point":{"pos":"37.587614 55.753083"}}}]}}}
+2021-09-01 11:00:04,076 DEBUG ru.nurmukhametov.geocodingcacher.service.YandexOuterGeocoder [restartedMain] returning parsed geocode: address=<<улица Новый Арбат, 24>>, coordinates=<<37.587614 55.753083>>
+2021-09-01 11:00:04,076 DEBUG ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService [restartedMain] outer geocoder returns: Geocode(coordinates=37.587614 55.753083, address=улица Новый Арбат, 24)
+2021-09-01 11:00:04,077 DEBUG ru.nurmukhametov.geocodingcacher.service.CacheServiceImpl [restartedMain] Saving in cache: null
+2021-09-01 11:02:28,129 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GeocodingCacherApplication using Java 11 on PC_ALEX with PID 29976 (D:\Programming\IdeaProjects\GeocodingCasher\target\classes started by Alex in D:\Programming\IdeaProjects\GeocodingCasher)
+2021-09-01 11:02:28,131 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.4, Spring v5.3.9
+2021-09-01 11:02:28,131 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-09-01 11:02:28,163 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-01 11:02:28,163 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-01 11:02:28,596 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-01 11:02:28,632 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 30 ms. Found 1 JPA repository interfaces.
+2021-09-01 11:02:29,252 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2021-09-01 11:02:29,257 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2021-09-01 11:02:29,258 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-09-01 11:02:29,258 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-01 11:02:29,325 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-09-01 11:02:29,326 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1162 ms
+2021-09-01 11:02:29,471 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-01 11:02:29,501 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-01 11:02:29,573 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-01 11:02:29,774 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-09-01 11:02:30,238 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-01 11:02:30,249 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-01 11:02:30,622 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-01 11:02:30,979 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-09-01 11:02:30,983 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 13 endpoint(s) beneath base path '/actuator'
+2021-09-01 11:02:31,003 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2021-09-01 11:02:31,013 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2021-09-01 11:02:31,033 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GeocodingCacherApplication in 3.328 seconds (JVM running for 4.076)
+2021-09-01 11:02:31,033 DEBUG ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService [restartedMain] findGeocode method argument: Москва
+2021-09-01 11:02:31,213 DEBUG ru.nurmukhametov.geocodingcacher.service.CacheServiceImpl [restartedMain] Returning result: null
+2021-09-01 11:02:31,213 DEBUG ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService [restartedMain] cache search returns: null
+2021-09-01 11:02:31,213 DEBUG ru.nurmukhametov.geocodingcacher.service.YandexOuterGeocoder [restartedMain] queryUrl: https://geocode-maps.yandex.ru/1.x/?format=json&apikey=c7fba982-a719-44e2-b065-0c6b85cf32c5&geocode=Москва
+2021-09-01 11:02:31,273 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(2)-192.168.1.77] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-01 11:02:31,273 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(2)-192.168.1.77] Initializing Servlet 'dispatcherServlet'
+2021-09-01 11:02:31,273 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(2)-192.168.1.77] Completed initialization in 0 ms
+2021-09-01 11:02:31,363 DEBUG ru.nurmukhametov.geocodingcacher.service.YandexOuterGeocoder [restartedMain] yandexResponse: {"response":{"GeoObjectCollection":{"metaDataProperty":{"GeocoderResponseMetaData":{"request":"Москва, улица Новый Арбат, дом 24","found":"1","results":"10"}},"featureMember":[{"GeoObject":{"metaDataProperty":{"GeocoderMetaData":{"kind":"house","text":"Россия, Москва, улица Новый Арбат, 24","precision":"exact","Address":{"country_code":"RU","postal_code":"119019","formatted":"Москва, улица Новый Арбат, 24","Components":[{"kind":"country","name":"Россия"},{"kind":"province","name":"Центральный федеральный округ"},{"kind":"province","name":"Москва"},{"kind":"locality","name":"Москва"},{"kind":"street","name":"улица Новый Арбат"},{"kind":"house","name":"24"}]},"AddressDetails":{"Country":{"AddressLine":"Москва, улица Новый Арбат, 24","CountryNameCode":"RU","CountryName":"Россия","AdministrativeArea":{"AdministrativeAreaName":"Москва","Locality":{"LocalityName":"Москва","Thoroughfare":{"ThoroughfareName":"улица Новый Арбат","Premise":{"PremiseNumber":"24","PostalCode":{"PostalCodeNumber":"119019"}}}}}}}}},"description":"Москва, Россия","name":"улица Новый Арбат, 24","boundedBy":{"Envelope":{"lowerCorner":"37.583508 55.750768","upperCorner":"37.591719 55.755398"}},"Point":{"pos":"37.587614 55.753083"}}}]}}}
+2021-09-01 11:02:31,363 DEBUG ru.nurmukhametov.geocodingcacher.service.YandexOuterGeocoder [restartedMain] returning parsed geocode: address=<<улица Новый Арбат, 24>>, coordinates=<<37.587614 55.753083>>
+2021-09-01 11:02:31,363 DEBUG ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService [restartedMain] outer geocoder returns: Geocode(coordinates=37.587614 55.753083, address=улица Новый Арбат, 24)
+2021-09-01 11:02:31,363 DEBUG ru.nurmukhametov.geocodingcacher.service.CacheServiceImpl [restartedMain] Saving in cache: null
+2021-09-01 11:06:44,035 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GeocodingCacherApplication using Java 11 on PC_ALEX with PID 19728 (D:\Programming\IdeaProjects\GeocodingCasher\target\classes started by Alex in D:\Programming\IdeaProjects\GeocodingCasher)
+2021-09-01 11:06:44,037 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.4, Spring v5.3.9
+2021-09-01 11:06:44,037 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-09-01 11:06:44,086 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-01 11:06:44,087 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-01 11:06:44,512 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-01 11:06:44,550 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 31 ms. Found 1 JPA repository interfaces.
+2021-09-01 11:06:45,139 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2021-09-01 11:06:45,145 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2021-09-01 11:06:45,146 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-09-01 11:06:45,146 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-01 11:06:45,215 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-09-01 11:06:45,216 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1129 ms
+2021-09-01 11:06:45,368 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-01 11:06:45,396 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-01 11:06:45,468 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-01 11:06:45,670 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-09-01 11:06:46,279 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-01 11:06:46,285 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-01 11:06:46,605 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-01 11:06:46,916 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-09-01 11:06:46,921 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 13 endpoint(s) beneath base path '/actuator'
+2021-09-01 11:06:46,947 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2021-09-01 11:06:46,961 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2021-09-01 11:06:46,974 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GeocodingCacherApplication in 3.489 seconds (JVM running for 4.232)
+2021-09-01 11:06:46,978 DEBUG ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService [restartedMain] findGeocode method argument: Москва
+2021-09-01 11:06:47,087 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(1)-192.168.1.77] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-01 11:06:47,088 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(1)-192.168.1.77] Initializing Servlet 'dispatcherServlet'
+2021-09-01 11:06:47,090 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(1)-192.168.1.77] Completed initialization in 1 ms
+2021-09-01 11:06:47,201 DEBUG ru.nurmukhametov.geocodingcacher.service.CacheServiceImpl [restartedMain] Returning result: null
+2021-09-01 11:06:47,201 DEBUG ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService [restartedMain] cache search returns: null
+2021-09-01 11:06:47,201 DEBUG ru.nurmukhametov.geocodingcacher.service.YandexOuterGeocoder [restartedMain] queryUrl: https://geocode-maps.yandex.ru/1.x/?format=json&apikey=c7fba982-a719-44e2-b065-0c6b85cf32c5&geocode=Москва
+2021-09-01 11:06:47,298 DEBUG ru.nurmukhametov.geocodingcacher.service.YandexOuterGeocoder [restartedMain] yandexResponse: {"response":{"GeoObjectCollection":{"metaDataProperty":{"GeocoderResponseMetaData":{"request":"Москва, улица Новый Арбат, дом 24","found":"1","results":"10"}},"featureMember":[{"GeoObject":{"metaDataProperty":{"GeocoderMetaData":{"kind":"house","text":"Россия, Москва, улица Новый Арбат, 24","precision":"exact","Address":{"country_code":"RU","postal_code":"119019","formatted":"Москва, улица Новый Арбат, 24","Components":[{"kind":"country","name":"Россия"},{"kind":"province","name":"Центральный федеральный округ"},{"kind":"province","name":"Москва"},{"kind":"locality","name":"Москва"},{"kind":"street","name":"улица Новый Арбат"},{"kind":"house","name":"24"}]},"AddressDetails":{"Country":{"AddressLine":"Москва, улица Новый Арбат, 24","CountryNameCode":"RU","CountryName":"Россия","AdministrativeArea":{"AdministrativeAreaName":"Москва","Locality":{"LocalityName":"Москва","Thoroughfare":{"ThoroughfareName":"улица Новый Арбат","Premise":{"PremiseNumber":"24","PostalCode":{"PostalCodeNumber":"119019"}}}}}}}}},"description":"Москва, Россия","name":"улица Новый Арбат, 24","boundedBy":{"Envelope":{"lowerCorner":"37.583508 55.750768","upperCorner":"37.591719 55.755398"}},"Point":{"pos":"37.587614 55.753083"}}}]}}}
+2021-09-01 11:06:47,302 DEBUG ru.nurmukhametov.geocodingcacher.service.YandexOuterGeocoder [restartedMain] returning parsed geocode: address=<<улица Новый Арбат, 24>>, coordinates=<<37.587614 55.753083>>
+2021-09-01 11:06:47,303 DEBUG ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService [restartedMain] outer geocoder returns: Geocode(coordinates=37.587614 55.753083, address=улица Новый Арбат, 24)
+2021-09-01 11:06:47,303 DEBUG ru.nurmukhametov.geocodingcacher.service.CacheServiceImpl [restartedMain] Saving in cache: null
+2021-09-01 11:06:47,358 WARN ru.nurmukhametov.geocodingcacher.service.GeocodeRepositoryService [restartedMain] org.springframework.dao.InvalidDataAccessApiUsageException
+2021-09-01 11:13:49,380 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GeocodingCacherApplication using Java 11 on PC_ALEX with PID 19700 (D:\Programming\IdeaProjects\GeocodingCasher\target\classes started by Alex in D:\Programming\IdeaProjects\GeocodingCasher)
+2021-09-01 11:13:49,382 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.4, Spring v5.3.9
+2021-09-01 11:13:49,382 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-09-01 11:13:49,425 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-01 11:13:49,426 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-01 11:13:49,828 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-01 11:13:49,868 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 25 ms. Found 1 JPA repository interfaces.
+2021-09-01 11:13:50,378 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2021-09-01 11:13:50,388 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2021-09-01 11:13:50,388 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-09-01 11:13:50,388 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-01 11:13:50,478 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-09-01 11:13:50,478 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1052 ms
+2021-09-01 11:13:50,618 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-01 11:13:50,648 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-01 11:13:50,718 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-01 11:13:50,909 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-09-01 11:13:51,315 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-01 11:13:51,322 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-01 11:13:51,598 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-01 11:13:51,870 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-09-01 11:13:51,874 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 13 endpoint(s) beneath base path '/actuator'
+2021-09-01 11:13:51,896 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2021-09-01 11:13:51,907 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2021-09-01 11:13:51,919 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GeocodingCacherApplication in 2.944 seconds (JVM running for 3.638)
+2021-09-01 11:13:51,924 DEBUG ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService [restartedMain] findGeocode method argument: Москва
+2021-09-01 11:13:52,070 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(1)-192.168.1.77] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-01 11:13:52,071 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(1)-192.168.1.77] Initializing Servlet 'dispatcherServlet'
+2021-09-01 11:13:52,073 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(1)-192.168.1.77] Completed initialization in 2 ms
+2021-09-01 11:13:52,118 DEBUG ru.nurmukhametov.geocodingcacher.service.CacheServiceImpl [restartedMain] Returning result: null
+2021-09-01 11:13:52,119 DEBUG ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService [restartedMain] cache search returns: null
+2021-09-01 11:13:52,119 DEBUG ru.nurmukhametov.geocodingcacher.service.YandexOuterGeocoder [restartedMain] queryUrl: https://geocode-maps.yandex.ru/1.x/?format=json&apikey=c7fba982-a719-44e2-b065-0c6b85cf32c5&geocode=Москва
+2021-09-01 11:13:52,241 DEBUG ru.nurmukhametov.geocodingcacher.service.YandexOuterGeocoder [restartedMain] yandexResponse: {"response":{"GeoObjectCollection":{"metaDataProperty":{"GeocoderResponseMetaData":{"request":"Москва, улица Новый Арбат, дом 24","found":"1","results":"10"}},"featureMember":[{"GeoObject":{"metaDataProperty":{"GeocoderMetaData":{"kind":"house","text":"Россия, Москва, улица Новый Арбат, 24","precision":"exact","Address":{"country_code":"RU","postal_code":"119019","formatted":"Москва, улица Новый Арбат, 24","Components":[{"kind":"country","name":"Россия"},{"kind":"province","name":"Центральный федеральный округ"},{"kind":"province","name":"Москва"},{"kind":"locality","name":"Москва"},{"kind":"street","name":"улица Новый Арбат"},{"kind":"house","name":"24"}]},"AddressDetails":{"Country":{"AddressLine":"Москва, улица Новый Арбат, 24","CountryNameCode":"RU","CountryName":"Россия","AdministrativeArea":{"AdministrativeAreaName":"Москва","Locality":{"LocalityName":"Москва","Thoroughfare":{"ThoroughfareName":"улица Новый Арбат","Premise":{"PremiseNumber":"24","PostalCode":{"PostalCodeNumber":"119019"}}}}}}}}},"description":"Москва, Россия","name":"улица Новый Арбат, 24","boundedBy":{"Envelope":{"lowerCorner":"37.583508 55.750768","upperCorner":"37.591719 55.755398"}},"Point":{"pos":"37.587614 55.753083"}}}]}}}
+2021-09-01 11:13:52,244 DEBUG ru.nurmukhametov.geocodingcacher.service.YandexOuterGeocoder [restartedMain] returning parsed geocode: address=<<улица Новый Арбат, 24>>, coordinates=<<37.587614 55.753083>>
+2021-09-01 11:13:52,244 DEBUG ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService [restartedMain] outer geocoder returns: Geocode(coordinates=37.587614 55.753083, address=улица Новый Арбат, 24)
+2021-09-01 11:13:52,245 DEBUG ru.nurmukhametov.geocodingcacher.service.CacheServiceImpl [restartedMain] Saving in cache: null
+2021-09-01 11:13:52,296 ERROR ru.nurmukhametov.geocodingcacher.service.GeocodeRepositoryService [restartedMain] Exception occured: org.springframework.dao.InvalidDataAccessApiUsageException
+2021-09-01 11:14:35,327 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GeocodingCacherApplication using Java 11 on PC_ALEX with PID 24640 (D:\Programming\IdeaProjects\GeocodingCasher\target\classes started by Alex in D:\Programming\IdeaProjects\GeocodingCasher)
+2021-09-01 11:14:35,328 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.4, Spring v5.3.9
+2021-09-01 11:14:35,329 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-09-01 11:14:35,366 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-01 11:14:35,367 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-01 11:14:35,783 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-01 11:14:35,814 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 25 ms. Found 1 JPA repository interfaces.
+2021-09-01 11:14:36,360 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2021-09-01 11:14:36,366 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2021-09-01 11:14:36,367 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-09-01 11:14:36,367 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-01 11:14:36,445 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-09-01 11:14:36,445 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1078 ms
+2021-09-01 11:14:36,588 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-01 11:14:36,616 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-01 11:14:36,682 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-01 11:14:36,881 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-09-01 11:14:37,437 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-01 11:14:37,444 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-01 11:14:37,718 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-01 11:14:37,989 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-09-01 11:14:37,993 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 13 endpoint(s) beneath base path '/actuator'
+2021-09-01 11:14:38,014 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2021-09-01 11:14:38,026 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2021-09-01 11:14:38,038 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GeocodingCacherApplication in 3.106 seconds (JVM running for 3.878)
+2021-09-01 11:14:38,043 DEBUG ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService [restartedMain] findGeocode method argument: Москва
+2021-09-01 11:14:38,218 DEBUG ru.nurmukhametov.geocodingcacher.service.CacheServiceImpl [restartedMain] Returning result: null
+2021-09-01 11:14:38,218 DEBUG ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService [restartedMain] cache search returns: null
+2021-09-01 11:14:38,218 DEBUG ru.nurmukhametov.geocodingcacher.service.YandexOuterGeocoder [restartedMain] queryUrl: https://geocode-maps.yandex.ru/1.x/?format=json&apikey=c7fba982-a719-44e2-b065-0c6b85cf32c5&geocode=Москва
+2021-09-01 11:14:38,234 INFO org.apache.juli.logging.DirectJDKLog [RMI TCP Connection(3)-192.168.1.77] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-01 11:14:38,236 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(3)-192.168.1.77] Initializing Servlet 'dispatcherServlet'
+2021-09-01 11:14:38,238 INFO org.springframework.web.servlet.FrameworkServlet [RMI TCP Connection(3)-192.168.1.77] Completed initialization in 1 ms
+2021-09-01 11:14:38,326 DEBUG ru.nurmukhametov.geocodingcacher.service.YandexOuterGeocoder [restartedMain] yandexResponse: {"response":{"GeoObjectCollection":{"metaDataProperty":{"GeocoderResponseMetaData":{"request":"Москва, улица Новый Арбат, дом 24","found":"1","results":"10"}},"featureMember":[{"GeoObject":{"metaDataProperty":{"GeocoderMetaData":{"kind":"house","text":"Россия, Москва, улица Новый Арбат, 24","precision":"exact","Address":{"country_code":"RU","postal_code":"119019","formatted":"Москва, улица Новый Арбат, 24","Components":[{"kind":"country","name":"Россия"},{"kind":"province","name":"Центральный федеральный округ"},{"kind":"province","name":"Москва"},{"kind":"locality","name":"Москва"},{"kind":"street","name":"улица Новый Арбат"},{"kind":"house","name":"24"}]},"AddressDetails":{"Country":{"AddressLine":"Москва, улица Новый Арбат, 24","CountryNameCode":"RU","CountryName":"Россия","AdministrativeArea":{"AdministrativeAreaName":"Москва","Locality":{"LocalityName":"Москва","Thoroughfare":{"ThoroughfareName":"улица Новый Арбат","Premise":{"PremiseNumber":"24","PostalCode":{"PostalCodeNumber":"119019"}}}}}}}}},"description":"Москва, Россия","name":"улица Новый Арбат, 24","boundedBy":{"Envelope":{"lowerCorner":"37.583508 55.750768","upperCorner":"37.591719 55.755398"}},"Point":{"pos":"37.587614 55.753083"}}}]}}}
+2021-09-01 11:14:38,330 DEBUG ru.nurmukhametov.geocodingcacher.service.YandexOuterGeocoder [restartedMain] returning parsed geocode: address=<<улица Новый Арбат, 24>>, coordinates=<<37.587614 55.753083>>
+2021-09-01 11:14:38,330 DEBUG ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService [restartedMain] outer geocoder returns: Geocode(coordinates=37.587614 55.753083, address=улица Новый Арбат, 24)
+2021-09-01 11:14:38,330 DEBUG ru.nurmukhametov.geocodingcacher.service.CacheServiceImpl [restartedMain] Saving in cache: null
+2021-09-01 11:14:38,384 ERROR ru.nurmukhametov.geocodingcacher.service.GeocodeRepositoryService [restartedMain] Exception occured: org.springframework.dao.InvalidDataAccessApiUsageException

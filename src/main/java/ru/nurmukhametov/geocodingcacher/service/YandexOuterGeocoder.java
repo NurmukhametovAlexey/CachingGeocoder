@@ -42,7 +42,7 @@ public class YandexOuterGeocoder implements OuterGeocoder {
 
         logger.debug("queryUrl: {}", queryUrl);
 
-        //queryUrl = "http://localhost:8080/test";
+        queryUrl = "http://localhost:8080/test";
 
         final JsonNode yandexResponse = restTemplate.getForObject(queryUrl, JsonNode.class);
 
