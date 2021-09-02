@@ -13,6 +13,8 @@ import org.springframework.web.client.RestTemplate;
 import ru.nurmukhametov.geocodingcacher.exception.BadGeocoderRequestException;
 import ru.nurmukhametov.geocodingcacher.model.Geocode;
 
+import java.util.regex.Pattern;
+
 @Service
 @PropertySource("classpath:application.properties")
 public class YandexOuterGeocoder implements OuterGeocoder {
@@ -39,6 +41,11 @@ public class YandexOuterGeocoder implements OuterGeocoder {
     @Override
     public Geocode makeHttpRequest (String addressOrCoordinates) throws BadGeocoderRequestException {
 
+        if (isCoordinates(addressOrCoordinates)) {
+            logger.debug("{} are coordinates", addressOrCoordinates);
+            addressOrCoordinates = fixYandexCoordinates(addressOrCoordinates);
+        }
+
         String queryUrl = String.format(queryPattern, yandexApiKey, addressOrCoordinates);
 
         logger.debug("queryUrl: {}", queryUrl);
@@ -64,6 +71,7 @@ public class YandexOuterGeocoder implements OuterGeocoder {
 
         String address = geocodeInformation.path("name").asText();
         String coordinates = geocodeInformation.path("Point").path("pos").asText();
+        coordinates = fixYandexCoordinates(coordinates);
 
         logger.debug("returning parsed geocode: address=<<{}>>, coordinates=<<{}>>", address, coordinates);
 
@@ -73,4 +81,16 @@ public class YandexOuterGeocoder implements OuterGeocoder {
         return geocode;
     }
 
+    private boolean isCoordinates(String addressOrCoordinates) {
+        return Pattern.matches("[0-9]{1,2}(\\.[0-9]*)?[\\,\\;\\s]+[0-9]{1,2}(\\.[0-9]*)?", addressOrCoordinates);
+    }
+
+    // For some reason Yandex API returns coordinates in the wrong order
+    // This function puts them in standard sequence latitude->longitude
+    private String fixYandexCoordinates(String coordinates) {
+        Pattern separator = Pattern.compile("[\\,\\;\\s]+");
+        String[] separateCoordinates = separator.split(coordinates, 2);
+        logger.debug("fixYandexCoordinates, split coordinates: {} and {}", separateCoordinates[0], separateCoordinates[1]);
+        return separateCoordinates[1] + " " + separateCoordinates[0];
+    }
 }

@@ -1,0 +1,26 @@
+
+*
+{
+    font-size: xxx-large;
+    align-content: center;
+}
+
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.search-input
+{
+    height: fit-content;
+    width: 640px;
+}

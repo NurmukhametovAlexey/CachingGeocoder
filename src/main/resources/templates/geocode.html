@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<h1>
+    Coordinates-Geocode converter
 
-    <form th:action="@{/geocode}" th:method="POST">
-        <input type="text" th:name="query"/>
-        <input type="submit"/>
+    </br><br/>
+
+    <form id="search" th:action="@{/geocode}" th:method="POST">
+        <input class="search-input" type="text" th:name="query" placeholder="Enter address or coordinates"/>
+        <input type="submit" value="Convert"/>
     </form>
 
-    <div th:if="${geocode!=null}" th:utext="'Address: ' +  ${geocode.getAddress()} + '<br/>Coordinates: ' + ${geocode.getCoordinates()}"/>
-    <div th:if="${geocode==null}" th:text="'No geocode yet...'"/>
+    </br>
 
-</h1>
+    <div th:if="${geocode!=null && geocode.getCoordinates() != null && geocode.getAddress() != null}"
+         th:utext="'Address: ' +  ${geocode.getAddress()} + '<br/><br/>Coordinates: ' + ${geocode.getCoordinates()}"/>
+
+    <div th:if="${geocode==null || geocode.getCoordinates() == null || geocode.getAddress() == null}"
+         th:text="'No geocode yet...'"/>
 
 </body>
 </html>

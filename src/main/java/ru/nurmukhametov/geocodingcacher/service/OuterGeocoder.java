@@ -1,6 +1,5 @@
 package ru.nurmukhametov.geocodingcacher.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import ru.nurmukhametov.geocodingcacher.exception.BadGeocoderRequestException;
 import ru.nurmukhametov.geocodingcacher.model.Geocode;
 
