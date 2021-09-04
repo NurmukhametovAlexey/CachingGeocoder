@@ -4,8 +4,11 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import ru.nurmukhametov.geocodingcacher.model.Geocode;
 
+import java.util.List;
+
 @Repository
 public interface GeocodeRepository extends CrudRepository<Geocode, String> {
-    Geocode findByAddress(String address);
+    Geocode findBySearchedAddress(String address);
+    List<Geocode> findByFullAddress(String address);
     Geocode findByCoordinates(String coordinates);
 }

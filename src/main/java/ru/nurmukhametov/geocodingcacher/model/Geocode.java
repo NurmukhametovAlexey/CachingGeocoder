@@ -2,17 +2,22 @@ package ru.nurmukhametov.geocodingcacher.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "geocode")
+@IdClass(GeocodeID.class)
 @Data
-public class Geocode {
+public class Geocode implements Serializable {
     @Id
     private String coordinates;
 
-    private String address;
+    @Id
+    @Column(name = "searched_address")
+    private String searchedAddress;
+
+    @Column(name = "full_address")
+    private String fullAddress;
 }
 

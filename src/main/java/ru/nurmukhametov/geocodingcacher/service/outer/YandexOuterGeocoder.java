@@ -1,4 +1,4 @@
-package ru.nurmukhametov.geocodingcacher.service;
+package ru.nurmukhametov.geocodingcacher.service.outer;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import org.slf4j.Logger;
@@ -39,19 +39,38 @@ public class YandexOuterGeocoder implements OuterGeocoder {
     String queryPattern;
 
     @Override
-    public Geocode makeHttpRequest (String addressOrCoordinates) throws BadGeocoderRequestException {
+    public Geocode makeHttpRequestByAddress(String address) throws BadGeocoderRequestException {
+        logger.debug("makeHttpRequestByAddress, address: {}", address);
 
-        if (isCoordinates(addressOrCoordinates)) {
-            logger.debug("{} are coordinates", addressOrCoordinates);
-            addressOrCoordinates = fixYandexCoordinates(addressOrCoordinates);
-        }
+        JsonNode yandexResponse = executeHttpQuery(address);
+        Geocode geocode = parseYandexResponse(yandexResponse);
+        geocode.setSearchedAddress(address);
 
-        String queryUrl = String.format(queryPattern, yandexApiKey, addressOrCoordinates);
+        logger.debug("returning geocode: {}", geocode.toString());
 
-        logger.debug("queryUrl: {}", queryUrl);
+        return geocode;
+    }
 
-        //queryUrl = "http://localhost:8080/test";
+    @Override
+    public Geocode makeHttpRequestByCoordinates(String coordinates) throws BadGeocoderRequestException {
+        coordinates = fixYandexCoordinates(coordinates);
 
+        logger.debug("makeHttpRequestByAddress, address: {}", coordinates);
+
+        JsonNode yandexResponse = executeHttpQuery(coordinates);
+        Geocode geocode = parseYandexResponse(yandexResponse);
+        geocode.setSearchedAddress(geocode.getFullAddress());
+        geocode.setCoordinates(coordinates);
+
+        logger.debug("returning geocode: {}", geocode.toString());
+
+        return geocode;
+    }
+
+    // Executing http query using apiKey
+    private JsonNode executeHttpQuery(String query) throws BadGeocoderRequestException {
+
+        String queryUrl = String.format(queryPattern, yandexApiKey, query);
         final JsonNode yandexResponse;
         try {
             yandexResponse = restTemplate.getForObject(queryUrl, JsonNode.class);
@@ -61,28 +80,33 @@ public class YandexOuterGeocoder implements OuterGeocoder {
             throw exception;
         }
 
-        logger.debug("yandexResponse: {}", yandexResponse);
+        logger.debug("executeHttpQuery. yandexResponse: {}", yandexResponse);
 
-        // Parsing Yandex geocoder json-response.
-        // For detailed information check Yandex documentation:
-        // https://yandex.ru/dev/maps/geocoder/doc/desc/reference/response_structure.html
-        JsonNode geocodeInformation = yandexResponse
+        return yandexResponse;
+    }
+
+    // Function for parsing Yandex geocoder json-response.
+    // For detailed information check Yandex documentation:
+    // https://yandex.ru/dev/maps/geocoder/doc/desc/reference/response_structure.html
+    private Geocode parseYandexResponse(JsonNode response) {
+        JsonNode geocodeInformationNode = response
                 .path("response").path("GeoObjectCollection").path("featureMember").get(0).path("GeoObject");
 
-        String address = geocodeInformation.path("name").asText();
-        String coordinates = geocodeInformation.path("Point").path("pos").asText();
-        coordinates = fixYandexCoordinates(coordinates);
+        String fullAddress = geocodeInformationNode
+                .path("metaDataProperty").path("GeocoderMetaData").path("Address").path("formatted").asText();
 
-        logger.debug("returning parsed geocode: address=<<{}>>, coordinates=<<{}>>", address, coordinates);
+        String coordinates = geocodeInformationNode
+                .path("Point").path("pos").asText();
+
+        coordinates = fixYandexCoordinates(coordinates);
 
         Geocode geocode = new Geocode();
         geocode.setCoordinates(coordinates);
-        geocode.setAddress(address);
-        return geocode;
-    }
+        geocode.setFullAddress(fullAddress);
 
-    private boolean isCoordinates(String addressOrCoordinates) {
-        return Pattern.matches("[0-9]{1,2}(\\.[0-9]*)?[\\,\\;\\s]+[0-9]{1,2}(\\.[0-9]*)?", addressOrCoordinates);
+        logger.debug("parseYandexResponse. Parsed geocode: {}", geocode.toString());
+
+        return geocode;
     }
 
     // For some reason Yandex API returns coordinates in the wrong order

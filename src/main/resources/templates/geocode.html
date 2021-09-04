@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    Coordinates-Geocode converter
+    Coordinates-Address converter
 
     </br><br/>
 
@@ -18,10 +18,10 @@
 
     </br>
 
-    <div th:if="${geocode!=null && geocode.getCoordinates() != null && geocode.getAddress() != null}"
-         th:utext="'Address: ' +  ${geocode.getAddress()} + '<br/><br/>Coordinates: ' + ${geocode.getCoordinates()}"/>
+    <div th:if="${geocode!=null && geocode.getCoordinates() != null && geocode.getFullAddress() != null}"
+         th:utext="'Address: ' +  ${geocode.getFullAddress()} + '<br/><br/>Coordinates: ' + ${geocode.getCoordinates()}"/>
 
-    <div th:if="${geocode==null || geocode.getCoordinates() == null || geocode.getAddress() == null}"
+    <div th:if="${geocode==null || geocode.getCoordinates() == null || geocode.getFullAddress() == null}"
          th:text="'No geocode yet...'"/>
 
 </body>

@@ -1,4 +1,4 @@
-package ru.nurmukhametov.geocodingcacher.service;
+package ru.nurmukhametov.geocodingcacher.repository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.nurmukhametov.geocodingcacher.exception.DatabaseException;
 import ru.nurmukhametov.geocodingcacher.model.Geocode;
-import ru.nurmukhametov.geocodingcacher.repository.GeocodeRepository;
 
 @Service
 public class GeocodeRepositoryService {
@@ -18,11 +17,18 @@ public class GeocodeRepositoryService {
         this.geocodeRepository = geocodeRepository;
     }
 
-    public Geocode getCoordinatesByAddress(String address) {
-        return geocodeRepository.findByAddress(address);
+    public Geocode findGeocodeByAddress(String address) {
+        Geocode geocode = geocodeRepository.findBySearchedAddress(address);
+        if (geocode == null) {
+            geocode = geocodeRepository.findByFullAddress(address)
+                    .stream()
+                    .findAny()
+                    .orElse(null);
+        }
+        return geocode;
     }
 
-    public Geocode getAddressByCoordinates(String coordinates) {
+    public Geocode findGeocodeByCoordinates(String coordinates) {
         return geocodeRepository.findByCoordinates(coordinates);
     }
 

@@ -9,6 +9,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import ru.nurmukhametov.geocodingcacher.exception.DatabaseException;
 import ru.nurmukhametov.geocodingcacher.model.Geocode;
 import ru.nurmukhametov.geocodingcacher.repository.GeocodeRepository;
+import ru.nurmukhametov.geocodingcacher.repository.GeocodeRepositoryService;
 
 @ExtendWith(MockitoExtension.class)
 class GeocodeRepositoryServiceTest {
@@ -24,13 +25,13 @@ class GeocodeRepositoryServiceTest {
     }
 
     @Test
-    void getCoordinatesByAddress() {
+    void getCoordinatesByFullAddress() {
         //given
         String address = "address";
         //when
-        underTest.getCoordinatesByAddress(address);
+        underTest.findGeocodeByAddress(address);
         //then
-        Mockito.verify(geocodeRepository, Mockito.times(1)).findByAddress(address);
+        Mockito.verify(geocodeRepository, Mockito.times(1)).findByFullAddress(address);
     }
 
     @Test
@@ -38,7 +39,7 @@ class GeocodeRepositoryServiceTest {
         //given
         String coordinates = "coordinates";
         //when
-        underTest.getAddressByCoordinates(coordinates);
+        underTest.findGeocodeByCoordinates(coordinates);
         //then
         Mockito.verify(geocodeRepository, Mockito.times(1)).findByCoordinates(coordinates);
     }
