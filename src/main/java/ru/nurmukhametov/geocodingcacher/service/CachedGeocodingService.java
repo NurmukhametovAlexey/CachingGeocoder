@@ -4,13 +4,13 @@ import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import ru.nurmukhametov.geocodingcacher.controller.dto.Query;
+import ru.nurmukhametov.geocodingcacher.controller.dto.QueryType;
 import ru.nurmukhametov.geocodingcacher.exception.BadGeocoderRequestException;
 import ru.nurmukhametov.geocodingcacher.exception.DatabaseException;
 import ru.nurmukhametov.geocodingcacher.model.Geocode;
 import ru.nurmukhametov.geocodingcacher.repository.GeocodeRepositoryService;
 import ru.nurmukhametov.geocodingcacher.service.outer.OuterGeocoder;
-
-import java.util.regex.Pattern;
 
 @Service
 @AllArgsConstructor
@@ -21,30 +21,30 @@ public class CachedGeocodingService {
     private final GeocodeRepositoryService geocodeRepositoryService;
     private final OuterGeocoder outerGeocoder;
 
-    public Geocode findGeocode(String addressOrCoordinates)
+    public Geocode findGeocode(Query query)
             throws DatabaseException, BadGeocoderRequestException {
 
-        logger.debug("findGeocode method argument: {}", addressOrCoordinates);
+        logger.debug("findGeocode method argument: {}", query);
 
-        Geocode geocode = null;
+        boolean isCoordinates = query.getQueryType().equals(QueryType.COORDINATES);
 
-        boolean isCoordinates = isCoordinates(addressOrCoordinates);
+        Geocode geocode;
 
         if(isCoordinates) {
             logger.debug("its coordinates");
-            geocode = geocodeRepositoryService.findGeocodeByCoordinates(addressOrCoordinates);
+            geocode = geocodeRepositoryService.findGeocodeByCoordinates(query.getText());
         } else {
             logger.debug("its NOT coordinates");
-            geocode = geocodeRepositoryService.findGeocodeByAddress(addressOrCoordinates);
+            geocode = geocodeRepositoryService.findGeocodeByAddress(query.getText());
         }
 
         logger.debug("cache search returns: {}", geocode);
 
         if (geocode == null) {
             if (isCoordinates) {
-                geocode = outerGeocoder.makeHttpRequestByCoordinates(addressOrCoordinates);
+                geocode = outerGeocoder.makeHttpRequestByCoordinates(query.getText());
             } else {
-                geocode = outerGeocoder.makeHttpRequestByAddress(addressOrCoordinates);
+                geocode = outerGeocoder.makeHttpRequestByAddress(query.getText());
             }
 
             logger.debug("outer geocoder returns: {}", geocode);
@@ -53,9 +53,5 @@ public class CachedGeocodingService {
         geocodeRepositoryService.saveGeocode(geocode);
 
         return geocode;
-    }
-
-    private boolean isCoordinates(String addressOrCoordinates) {
-        return Pattern.matches("[0-9]{1,2}(\\.[0-9]*)?[\\,\\;\\s]+[0-9]{1,2}(\\.[0-9]*)?", addressOrCoordinates);
     }
 }

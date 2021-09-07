@@ -17,6 +17,7 @@ public class GeocodeRepositoryService {
         this.geocodeRepository = geocodeRepository;
     }
 
+
     public Geocode findGeocodeByAddress(String address) {
         Geocode geocode = geocodeRepository.findBySearchedAddress(address);
         if (geocode == null) {
@@ -29,7 +30,10 @@ public class GeocodeRepositoryService {
     }
 
     public Geocode findGeocodeByCoordinates(String coordinates) {
-        return geocodeRepository.findByCoordinates(coordinates);
+        return geocodeRepository.findByCoordinates(coordinates)
+                .stream()
+                .findAny()
+                .orElse(null);
     }
 
     public Geocode saveGeocode(Geocode geocode) throws DatabaseException {

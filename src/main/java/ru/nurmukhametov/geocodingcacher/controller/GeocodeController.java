@@ -3,9 +3,13 @@ package ru.nurmukhametov.geocodingcacher.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+import ru.nurmukhametov.geocodingcacher.controller.dto.GeocodeResponse;
+import ru.nurmukhametov.geocodingcacher.controller.dto.Query;
+import ru.nurmukhametov.geocodingcacher.exception.BadGeocoderRequestException;
+import ru.nurmukhametov.geocodingcacher.exception.DatabaseException;
 import ru.nurmukhametov.geocodingcacher.model.Geocode;
 import ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService;
 
@@ -21,36 +25,18 @@ public class GeocodeController {
         this.geocodingService = geocodingService;
     }
 
-    @GetMapping("/geocode")
-    public ModelAndView showGeocode(@ModelAttribute Geocode geocode) {
+    @GetMapping("/geocode/{addressOrCoordinates}")
+    public GeocodeResponse getGeocode(@PathVariable String addressOrCoordinates)
+            throws BadGeocoderRequestException, DatabaseException {
 
-        logger.debug("GetMapping '/geocode', ModelAttribute geocode: {}", geocode);
+        logger.debug("GetMapping /geocode/{}", addressOrCoordinates);
 
-        ModelAndView modelAndView = new ModelAndView("/geocode");
-        if (geocode != null) {
-            modelAndView.addObject("geocode", geocode);
-        }
-        return modelAndView;
-    }
+        Query query = new Query(addressOrCoordinates);
 
-    @PostMapping("/geocode")
-    public ModelAndView getGeocode(@RequestParam(value = "query") String query, RedirectAttributes attributes) {
-        logger.debug("PostMapping '/geocode', Query: {}", query);
+        logger.debug("Formed query: {}", query);
 
-        if(query == null || query.isBlank()) {
-            return new ModelAndView("redirect:/geocode");
-        }
+        Geocode geocode = geocodingService.findGeocode(query);
 
-        ModelAndView modelAndView = new ModelAndView();
-        try {
-            Geocode geocode =  geocodingService.findGeocode(query);
-            modelAndView.setViewName("redirect:/geocode");
-            attributes.addFlashAttribute("geocode", geocode);
-        } catch (Exception e) {
-            logger.error("{} in controller. Stack trace: {}", e.getClass().getSimpleName(), e.getStackTrace());
-            modelAndView.setViewName("redirect:/error");
-            attributes.addFlashAttribute("exception", e);
-        }
-        return modelAndView;
+        return new GeocodeResponse(query, geocode);
     }
 }

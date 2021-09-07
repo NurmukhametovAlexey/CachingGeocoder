@@ -10,5 +10,5 @@ import java.util.List;
 public interface GeocodeRepository extends CrudRepository<Geocode, String> {
     Geocode findBySearchedAddress(String address);
     List<Geocode> findByFullAddress(String address);
-    Geocode findByCoordinates(String coordinates);
+    List<Geocode> findByCoordinates(String coordinates);
 }
