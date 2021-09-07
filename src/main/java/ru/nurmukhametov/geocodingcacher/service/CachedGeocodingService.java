@@ -8,6 +8,7 @@ import ru.nurmukhametov.geocodingcacher.controller.dto.Query;
 import ru.nurmukhametov.geocodingcacher.controller.dto.QueryType;
 import ru.nurmukhametov.geocodingcacher.exception.BadGeocoderRequestException;
 import ru.nurmukhametov.geocodingcacher.exception.DatabaseException;
+import ru.nurmukhametov.geocodingcacher.exception.ResultsNotFoundException;
 import ru.nurmukhametov.geocodingcacher.model.Geocode;
 import ru.nurmukhametov.geocodingcacher.repository.GeocodeRepositoryService;
 import ru.nurmukhametov.geocodingcacher.service.outer.OuterGeocoder;
@@ -22,7 +23,7 @@ public class CachedGeocodingService {
     private final OuterGeocoder outerGeocoder;
 
     public Geocode findGeocode(Query query)
-            throws DatabaseException, BadGeocoderRequestException {
+            throws DatabaseException, BadGeocoderRequestException, ResultsNotFoundException {
 
         logger.debug("findGeocode method argument: {}", query);
 

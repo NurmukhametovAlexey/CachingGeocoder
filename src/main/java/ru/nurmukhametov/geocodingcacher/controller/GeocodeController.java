@@ -10,6 +10,7 @@ import ru.nurmukhametov.geocodingcacher.controller.dto.GeocodeResponse;
 import ru.nurmukhametov.geocodingcacher.controller.dto.Query;
 import ru.nurmukhametov.geocodingcacher.exception.BadGeocoderRequestException;
 import ru.nurmukhametov.geocodingcacher.exception.DatabaseException;
+import ru.nurmukhametov.geocodingcacher.exception.ResultsNotFoundException;
 import ru.nurmukhametov.geocodingcacher.model.Geocode;
 import ru.nurmukhametov.geocodingcacher.service.CachedGeocodingService;
 
@@ -27,7 +28,7 @@ public class GeocodeController {
 
     @GetMapping("/geocode/{addressOrCoordinates}")
     public GeocodeResponse getGeocode(@PathVariable String addressOrCoordinates)
-            throws BadGeocoderRequestException, DatabaseException {
+            throws BadGeocoderRequestException, DatabaseException, ResultsNotFoundException {
 
         logger.debug("GetMapping /geocode/{}", addressOrCoordinates);
 

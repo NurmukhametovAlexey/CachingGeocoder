@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import ru.nurmukhametov.geocodingcacher.exception.BadGeocoderRequestException;
+import ru.nurmukhametov.geocodingcacher.exception.ResultsNotFoundException;
 import ru.nurmukhametov.geocodingcacher.model.Geocode;
 
 import java.util.regex.Pattern;
@@ -39,7 +40,8 @@ public class YandexOuterGeocoder implements OuterGeocoder {
     String queryPattern;
 
     @Override
-    public Geocode makeHttpRequestByAddress(String address) throws BadGeocoderRequestException {
+    public Geocode makeHttpRequestByAddress(String address)
+            throws BadGeocoderRequestException, ResultsNotFoundException {
         logger.debug("makeHttpRequestByAddress, address: {}", address);
 
         JsonNode yandexResponse = executeHttpQuery(address);
@@ -52,7 +54,8 @@ public class YandexOuterGeocoder implements OuterGeocoder {
     }
 
     @Override
-    public Geocode makeHttpRequestByCoordinates(String coordinates) throws BadGeocoderRequestException {
+    public Geocode makeHttpRequestByCoordinates(String coordinates)
+            throws BadGeocoderRequestException, ResultsNotFoundException {
         coordinates = fixYandexCoordinates(coordinates);
 
         logger.debug("makeHttpRequestByAddress, address: {}", coordinates);
@@ -88,25 +91,30 @@ public class YandexOuterGeocoder implements OuterGeocoder {
     // Function for parsing Yandex geocoder json-response.
     // For detailed information check Yandex documentation:
     // https://yandex.ru/dev/maps/geocoder/doc/desc/reference/response_structure.html
-    private Geocode parseYandexResponse(JsonNode response) {
-        JsonNode geocodeInformationNode = response
-                .path("response").path("GeoObjectCollection").path("featureMember").get(0).path("GeoObject");
+    private Geocode parseYandexResponse(JsonNode response) throws ResultsNotFoundException {
+        try {
+            JsonNode geocodeInformationNode = response
+                    .path("response").path("GeoObjectCollection").path("featureMember").get(0).path("GeoObject");
 
-        String fullAddress = geocodeInformationNode
-                .path("metaDataProperty").path("GeocoderMetaData").path("Address").path("formatted").asText();
+            String fullAddress = geocodeInformationNode
+                    .path("metaDataProperty").path("GeocoderMetaData").path("Address").path("formatted").asText();
 
-        String coordinates = geocodeInformationNode
-                .path("Point").path("pos").asText();
+            String coordinates = geocodeInformationNode
+                    .path("Point").path("pos").asText();
 
-        coordinates = fixYandexCoordinates(coordinates);
+            coordinates = fixYandexCoordinates(coordinates);
 
-        Geocode geocode = new Geocode();
-        geocode.setCoordinates(coordinates);
-        geocode.setFullAddress(fullAddress);
+            Geocode geocode = new Geocode();
+            geocode.setCoordinates(coordinates);
+            geocode.setFullAddress(fullAddress);
 
-        logger.debug("parseYandexResponse. Parsed geocode: {}", geocode.toString());
+            logger.debug("parseYandexResponse. Parsed geocode: {}", geocode.toString());
 
-        return geocode;
+            return geocode;
+        } catch (NullPointerException e) {
+            logger.error("NullPointerException occurred for response: {}", response);
+            throw new ResultsNotFoundException("Yandex Geocoder API returned empty response", e);
+        }
     }
 
     // For some reason Yandex API returns coordinates in the wrong order
