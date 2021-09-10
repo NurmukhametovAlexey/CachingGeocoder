@@ -5,15 +5,15 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import ru.nurmukhametov.geocodingcacher.exception.ResultsNotFoundException;
+import ru.nurmukhametov.geocodingcacher.exception.BadGeocoderResponseException;
 
 @ControllerAdvice
-public class ResultsNotFoundAdvice {
+public class BadGeocoderResponseAdvice {
 
     @ResponseBody
-    @ExceptionHandler(ResultsNotFoundException.class)
+    @ExceptionHandler(BadGeocoderResponseException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String ResultNotFoundHandler(ResultsNotFoundException exception) {
+    String ResultNotFoundHandler(BadGeocoderResponseException exception) {
         return exception.getMessage();
     }
 }

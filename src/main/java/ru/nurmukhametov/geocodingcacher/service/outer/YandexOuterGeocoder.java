@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import ru.nurmukhametov.geocodingcacher.exception.BadGeocoderRequestException;
-import ru.nurmukhametov.geocodingcacher.exception.ResultsNotFoundException;
+import ru.nurmukhametov.geocodingcacher.exception.BadGeocoderResponseException;
 import ru.nurmukhametov.geocodingcacher.model.Geocode;
 
 import java.util.regex.Pattern;
@@ -22,26 +22,24 @@ public class YandexOuterGeocoder implements OuterGeocoder {
 
     private final Logger logger = LoggerFactory.getLogger(YandexOuterGeocoder.class);
 
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
 
-    public void setRestTemplate(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
-    }
+    private final String yandexApiKey;
+
+    private final String queryPattern;
 
     @Autowired
-    public YandexOuterGeocoder(RestTemplateBuilder restTemplateBuilder) {
+    public YandexOuterGeocoder(RestTemplateBuilder restTemplateBuilder,
+                               @Value("${yandex.api.geocode.key}") String yandexApiKey,
+                               @Value("${yandex.api.geocode.query}") String queryPattern) {
          restTemplate = restTemplateBuilder.build();
+         this.yandexApiKey = yandexApiKey;
+         this.queryPattern = queryPattern;
     }
 
-    @Value("${yandex.api.geocode.key}")
-    String yandexApiKey;
-
-    @Value("${yandex.api.geocode.query}")
-    String queryPattern;
-
     @Override
-    public Geocode makeHttpRequestByAddress(String address)
-            throws BadGeocoderRequestException, ResultsNotFoundException {
+    public Geocode makeRequestByAddress(String address)
+            throws BadGeocoderRequestException, BadGeocoderResponseException {
         logger.debug("makeHttpRequestByAddress, address: {}", address);
 
         JsonNode yandexResponse = executeHttpQuery(address);
@@ -54,8 +52,8 @@ public class YandexOuterGeocoder implements OuterGeocoder {
     }
 
     @Override
-    public Geocode makeHttpRequestByCoordinates(String coordinates)
-            throws BadGeocoderRequestException, ResultsNotFoundException {
+    public Geocode makeRequestByCoordinates(String coordinates)
+            throws BadGeocoderRequestException, BadGeocoderResponseException {
         coordinates = fixYandexCoordinates(coordinates);
 
         logger.debug("makeHttpRequestByAddress, address: {}", coordinates);
@@ -91,7 +89,7 @@ public class YandexOuterGeocoder implements OuterGeocoder {
     // Function for parsing Yandex geocoder json-response.
     // For detailed information check Yandex documentation:
     // https://yandex.ru/dev/maps/geocoder/doc/desc/reference/response_structure.html
-    private Geocode parseYandexResponse(JsonNode response) throws ResultsNotFoundException {
+    private Geocode parseYandexResponse(JsonNode response) throws BadGeocoderResponseException {
         try {
             JsonNode geocodeInformationNode = response
                     .path("response").path("GeoObjectCollection").path("featureMember").get(0).path("GeoObject");
@@ -113,15 +111,24 @@ public class YandexOuterGeocoder implements OuterGeocoder {
             return geocode;
         } catch (NullPointerException e) {
             logger.error("NullPointerException occurred for response: {}", response);
-            throw new ResultsNotFoundException("Yandex Geocoder API returned empty response", e);
+            throw new BadGeocoderResponseException("Yandex Geocoder API returned empty response", e);
+        } catch (BadGeocoderRequestException e) {
+            logger.error("BadGeocoderRequestException occurred for response: {}", response);
+            throw new BadGeocoderResponseException("Yandex Geocoder API returned response with invalid coordinates", e);
         }
     }
 
     // For some reason Yandex API returns coordinates in the wrong order
     // This function puts them in standard sequence latitude->longitude
-    private String fixYandexCoordinates(String coordinates) {
+    private String fixYandexCoordinates(String coordinates) throws BadGeocoderRequestException {
         Pattern separator = Pattern.compile("[\\,\\;\\s]+");
-        String[] separateCoordinates = separator.split(coordinates, 2);
+        String[] separateCoordinates = separator.split(coordinates);
+        if (separateCoordinates.length != 2) {
+            logger.error("BadGeocoderRequestException occurred for coordinates: {}", coordinates);
+            throw new BadGeocoderRequestException(
+                    "Error attempting to fix Yandex API coordinates. Expected 2 coordinates, got: "
+                            + separateCoordinates.length);
+        }
         logger.debug("fixYandexCoordinates, split coordinates: {} and {}", separateCoordinates[0], separateCoordinates[1]);
         return separateCoordinates[1] + " " + separateCoordinates[0];
     }
