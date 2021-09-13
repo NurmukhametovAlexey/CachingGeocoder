@@ -4,11 +4,11 @@ Application provides caching proxy-service for Yandex Geocoder API.
 It allows for converting address into geographic coordinates and vice-versa.
 
 * API servers:
-- url: https://localhost/geocode?addressOrCoordinates={your-response-address/coordinates}
+  url: https://localhost/geocode?addressOrCoordinates={your-response-address/coordinates}
   method: GET
   response: application/json (GeocodeResponse.class)
 
-- url: https://localhost/actuator
+  url: https://localhost/actuator
   method: GET
   response: application/json (available actuator URIs)
 
