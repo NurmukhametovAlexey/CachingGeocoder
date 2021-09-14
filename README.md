@@ -25,10 +25,11 @@ It allows for converting address into geographic coordinates and vice-versa.
 
 
 ###  How to run the application
-(you will need to have jdk, maven and docker installed and added to PATH)
+(you will need to have jdk, maven, docker and docker-compose installed and added to PATH)
 
 1) Open project root directory in terminal
-2) Run "mvnw clean package -DskipTests" to compile application jar in "target" directory
-3) Run "docker-compose up -d" to run the Docker containers
+1.2) On Linux run "chmod 777 mvnw" to allow execution of mvnw
+3) Run "mvnw clean package -DskipTests" to compile application jar in "target" directory
+4) Run "docker-compose up -d" to run the Docker containers
 
 Exposed ports can be changed in Dockerfile and docker-compose.yml
