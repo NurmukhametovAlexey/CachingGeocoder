@@ -28,7 +28,7 @@ It allows for converting address into geographic coordinates and vice-versa.
 (you will need to have jdk, maven, docker and docker-compose installed and added to PATH)
 
 1) Open project root directory in terminal
-1.2) On Linux run "chmod 777 mvnw" to allow execution of mvnw
+2) On Linux run "chmod 777 mvnw" to allow execution of mvnw
 3) Run "mvnw clean package -DskipTests" to compile application jar in "target" directory
 4) Run "docker-compose up -d" to run the Docker containers
 
