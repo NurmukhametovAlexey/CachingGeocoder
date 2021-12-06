@@ -32,4 +32,6 @@ It allows for converting address into geographic coordinates and vice-versa.
 3) Run "mvnw clean package -DskipTests" to compile application jar in "target" directory
 4) Run "docker-compose up -d" to run the Docker containers
 
+4.5) If you want to compile the app yourself - you will need to get your own Yandex API key and insert it in application.properties
+
 Exposed ports can be changed in Dockerfile and docker-compose.yml
